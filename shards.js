@@ -35,7 +35,7 @@ module.exports.run = async (client, message) => {
 
 	// Busca por algumas informações, para preencher a tabela.
 	const uptime = await client.shard.broadcastEval('this.uptime'),
-		ping = await client.shard.broadcastEval('Math.round(this.ws.ping)'),
+		ping = await client.shard.broadcastEval('parseFloat(this.ws.ping)'),
 		ram = await client.shard.broadcastEval(`process.memoryUsage().rss`),
 		guilds = await client.shard.fetchClientValues('guilds.cache.size'),
 		channels = await client.shard.fetchClientValues('channels.cache.size'),
@@ -57,13 +57,13 @@ module.exports.run = async (client, message) => {
 	const botGuilds = guilds.reduce((prev, val) => prev + val),
 		botUsers = users.reduce((prev, val) => prev + val),
 		ramTotal = ram.reduce((prev, val) => prev + val),
-		ping_media = ping.reduce((prev, val) => prev + val / client.options.shardCount)
-
+		ping_media = ping.reduce((prev, val) => prev + val),
+		media = ping_media / client.options.shardCount
 	// Aqui definimos um Row vazio ou complementado por algum simbolo.
 	table.addRow('______', '______', '______', '______', '______', '______')
 
 	// Essa é a última linha da TABELA, então seria o resultado da soma ou média dos valores mostrados las linhas anteriores.
-	table.addRow('TOTAL', '-', '~' + Math.round(ping_media) + 'ms', bytesToSize(ramTotal, 2), botGuilds.toLocaleString('pt-BR'), botUsers.toLocaleString('pt-BR'))
+	table.addRow('TOTAL', '-', '~' + Math.round(media) + 'ms', bytesToSize(ramTotal, 2), botGuilds.toLocaleString('pt-BR'), botUsers.toLocaleString('pt-BR'))
 
 	/* 
 	*Essa parte é a mais esperada, que envia de fato a TABELA, no canal onde foi usado o comando. 
