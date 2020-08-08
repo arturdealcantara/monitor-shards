@@ -59,6 +59,7 @@ module.exports.run = async (client, message) => {
 		ramTotal = ram.reduce((prev, val) => prev + val),
 		ping_media = ping.reduce((prev, val) => prev + val),
 		media = ping_media / client.options.shardCount
+	
 	// Aqui definimos um Row vazio ou complementado por algum simbolo.
 	table.addRow('______', '______', '______', '______', '______', '______')
 
