@@ -35,7 +35,7 @@ module.exports.run = async (client, message) => {
 
 	// Busca por algumas informações, para preencher a tabela.
 	const uptime = await client.shard.broadcastEval('this.uptime'),
-		ping = await client.shard.broadcastEval('parseFloat(this.ws.ping)'),
+		ping = await client.shard.broadcastEval('Math.round(this.ws.ping)'),
 		ram = await client.shard.broadcastEval(`process.memoryUsage().rss`),
 		guilds = await client.shard.fetchClientValues('guilds.cache.size'),
 		channels = await client.shard.fetchClientValues('channels.cache.size'),
