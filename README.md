@@ -5,7 +5,7 @@
 > * Foi desenvolvido por mim, com algumas pesquisas.
 
 ## 🎉 Resultado
-![Alt text](https://prnt.sc/1rykf50 "ZabbiX Status")
+![Alt text](https://i.imgur.com/BXJHh6G.png "ZabbiX Status")
 
 ## ✅ Pré requisitos
 
