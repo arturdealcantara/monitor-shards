@@ -9,7 +9,7 @@
 
 ## ✅ Pré requisitos
 
-* [***Discord.js - V12.2.0***](https://discord.js.org/#/)
+* [***Discord.js - V13.1.0***](https://discord.js.org/#/)
 * [***ascii-table - V0.0.9***](https://www.npmjs.com/package/ascii-table)
 * ***Conhecimentos básicos.***
 
